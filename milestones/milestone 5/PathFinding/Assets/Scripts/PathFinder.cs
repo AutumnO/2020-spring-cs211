@@ -55,24 +55,13 @@ public class PathFinder
             //TODO: Implement Dijkstra's algorithm!
             TilePath current_path = new TilePath(pathQueue.Dequeue());
 
-            // Step 1, we found the spot
-            Vector3Int position = current_path.GetMostRecentTile().Position; // TO-DO: Get most recent tile's location, assign to variable
+            Vector3Int position = current_path.GetMostRecentTile().Position; 
 
             if (position == end) // If currentLocation == End location
             {
                 discoveredPath = current_path;
                 break;
             }
-
-            // Step 2, we didn't find the spot, Dijksta's algorithm part 2.
-
-            // Do this 4 times, once for each of these locations:
-            // where O is our current path, and X is the next path we go to
-            //  _X_ ___ ___ ___
-            //  _O_ _O_ _OX XO_
-            //  ___ _X_ ___ ___
-
-            // Get location of X
 
             Vector3Int next_down = position;
             Vector3Int next_up = position;
@@ -93,9 +82,8 @@ public class PathFinder
             {
                 // Get the tile and set to position of X
                 var next_position = map.GetTile(next_poses[i]);
-                if (next_position != null)
+                if (next_position != null) // check if fallen off edge of map
                 {
-                    // Get the tile
                     var new_tile = tileFactory.GetTile(next_position.name);
                     new_tile.Position = next_poses[i];
 
@@ -118,9 +106,6 @@ public class PathFinder
                     }
                 }
             }
-
-            //pathQueue.Dequeue();
-
 
             //This line ensures that we don't get an infinite loop in Unity.
             //You will need to remove it in order for your pathfinding algorithm to work.
