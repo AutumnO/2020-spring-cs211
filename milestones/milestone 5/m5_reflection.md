@@ -27,10 +27,8 @@ was stressful but also still rewarding, and I feel as though I did accomplish my
 by the end.
 
 This COVID situation as a whole has been a test of endurance for me, with 
-eroding technology and a sudden new environment I’ve found myself struggling to 
-keep working at the same standards that I’ve maintained in the past. In addition to 
-personal struggles that were present before these new developments, 2020 so far 
-has really not been my year. I hope that moving into the next milestone, having 
-finally acquired a computer that I can use for this class, I will be able to use the 
-same skills I have in previous milestones and achieve something I can be proud 
-of.
+eroding technology and a sudden new environment I’ve found myself needing to amend my
+goals and intentions to better fit my current abilities. I hope that moving into the 
+next milestone, having finally acquired a computer that I can use for this class, I 
+will be able to use the same skills I have in previous milestones and achieve something 
+I can be proud of.
