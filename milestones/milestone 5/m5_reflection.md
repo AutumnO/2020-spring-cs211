@@ -14,13 +14,17 @@ and data limits made an otherwise straightforward project the most stressful
 two weeks of my semester so far. This was particularly true since many other 
 projects and applications are due this weekend as well.
 
-I definitely don’t feel great about this project. I don’t feel like I had the space to 
-give it my all and the product suffered as a result. To fully approach this milestone
-I needed to read through it all and understand how each part affected the result, 
-and I wasn’t able to do that in addition to adding functionality. Due to my 
-desperation to turn anything in I wasn’t able to learn or use the extent of my 
-knowledge within the process, although at this point I’m really not sure what else I 
-could have done.
+I feel as though I did as much as I could completing this project given the barriers
+I faced. I feel like I had a good understanding of what the code is doing, and the
+algorithm behind it. Near the end of yesterday I had working code that didn't contain
+errors but also didn't seem to be finding any paths. I found out that I wasn't
+correctly adding the new paths to the queue or assigning them to the returned path.
+Then I ran into a series of null errors I realized were due to attempting paths
+outside of the tile map, so I put in a null check to avoid moving off the map.
+Lastly I realized my method for finding the endpoint was redundent so I fixed that
+and commented out the unnecessary code. The little time I had to work on this project
+was stressful but also still rewarding, and I feel as though I did accomplish my goals
+by the end.
 
 This COVID situation as a whole has been a test of endurance for me, with 
 eroding technology and a sudden new environment I’ve found myself struggling to 
