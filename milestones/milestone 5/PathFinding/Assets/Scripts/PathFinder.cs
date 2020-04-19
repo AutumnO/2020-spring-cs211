@@ -34,15 +34,15 @@ public class PathFinder
         //This is how you get tile information for a particular map location
         //This gets the Unity tile, which contains a coordinate (.Position)
         var startingMapLocation = map.GetTile(start);
-        var endingMapLocation = map.GetTile(end);
+        //var endingMapLocation = map.GetTile(end);
 
         //And this converts the Unity tile into an object model that tracks the
         //cost to visit the tile.
         var startingTile = tileFactory.GetTile(startingMapLocation.name);
         startingTile.Position = start;
 
-        var endingTile = tileFactory.GetTile(endingMapLocation.name);
-        endingTile.Position = end;
+        //var endingTile = tileFactory.GetTile(endingMapLocation.name);
+        //endingTile.Position = end;
 
         //Any discovered path must start at the origin!
         discoveredPath.AddTileToPath(startingTile);
@@ -53,14 +53,14 @@ public class PathFinder
         while (found == false && pathQueue.IsEmpty() == false)
         {
             //TODO: Implement Dijkstra's algorithm!
-            TilePath current_tile = new TilePath(pathQueue.Dequeue());
+            TilePath current_path = new TilePath(pathQueue.Dequeue());
 
             // Step 1, we found the spot
-            Vector3Int position = current_tile.GetMostRecentTile().Position; // TO-DO: Get most recent tile's location, assign to variable
+            Vector3Int position = current_path.GetMostRecentTile().Position; // TO-DO: Get most recent tile's location, assign to variable
 
-            if (position == endingTile.Position) // If currentLocation == End location
+            if (position == end) // If currentLocation == End location
             {
-                discoveredPath = current_tile;
+                discoveredPath = current_path;
                 break;
             }
 
@@ -93,25 +93,29 @@ public class PathFinder
             {
                 // Get the tile and set to position of X
                 var next_position = map.GetTile(next_poses[i]);
-                // Get the tile
-                var xTile = tileFactory.GetTile(next_position.name);
-                xTile.Position = next_poses[i];
-
-                // Now we make a brand new path based on our current one.(bullet 1)
-                TilePath copyForX = new TilePath(current_tile); // Done
-
-                // Add xTile to copyForX
-                copyForX.AddTileToPath(xTile); // todo
-                
-                // does it contain end tile?
-                if (next_poses[i] == endingTile.Position)
+                if (next_position != null)
                 {
-                    found = true;
-                    break;
-                }
-                else
-                {
-                    pathQueue.Enqueue(copyForX);
+                    // Get the tile
+                    var new_tile = tileFactory.GetTile(next_position.name);
+                    new_tile.Position = next_poses[i];
+
+                    // Now we make a brand new path based on our current one.(bullet 1)
+                    TilePath new_path = new TilePath(current_path); // Done
+
+                    // Add new_tile to new_path
+                    new_path.AddTileToPath(new_tile); // todo
+
+                    // does it contain end tile?
+                    if (next_poses[i] == end)
+                    {
+                        found = true;
+                        discoveredPath = new_path;
+                        break;
+                    }
+                    else
+                    {
+                        pathQueue.Enqueue(new_path);
+                    }
                 }
             }
 

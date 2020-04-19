@@ -150,7 +150,7 @@ public class UserSelectionState : NoUserSelectionState
     public override void HandleMouseMovement(Vector3Int position)
     {
         base.HandleMouseMovement(position);
-        if(SelectedTilePosition != position)
+        if (SelectedTilePosition != position)
         {
             var path = PathFinder.DiscoverPath(TerrainMap, SelectedTilePosition, position);
             var tiles = path.GetPath();
@@ -159,7 +159,7 @@ public class UserSelectionState : NoUserSelectionState
             ClearLastPath();
 
             //draw in new path
-            for(int i = 1; i < tiles.Count; i++)
+            for (int i = 1; i < tiles.Count; i++)
             {
                 MouseTileMap.SetTile(tiles[i].Position, HighlightTile);
             }
